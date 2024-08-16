@@ -1,4 +1,4 @@
-module github.com/diamondburned/chatkit
+module github.com/edaigle/chatkit
 
 go 1.21.0
 
