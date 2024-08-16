@@ -152,7 +152,7 @@ func NewViewer(ctx context.Context, uri string, opts Opts) (*Viewer, error) {
 	v.SetContent(box)
 
 	esc := gtk.NewEventControllerKey()
-	esc.setName("viewer-escape")
+	esc.SetName("viewer-escape")
 	esc.ConnectKeyPressed(func(val, _ uint, state gdk.ModifierType) bool {
 		switch val {
 		case gdk.KEY_Escape:
