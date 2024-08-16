@@ -157,12 +157,12 @@ func NewViewer(ctx context.Context, uri string, opts Opts) (*Viewer, error) {
 		switch val {
 		case gdk.KEY_Escape:
 			print("Hello!")
-			close()
 			v.Close()
 			return true
 		}
 		return false
 	})
+	v.AddController(esc)
 
 	gtkutil.BindActionMap(v, map[string]func(){
 		"embedviewer.close":         v.close,
