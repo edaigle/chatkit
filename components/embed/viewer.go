@@ -156,6 +156,8 @@ func NewViewer(ctx context.Context, uri string, opts Opts) (*Viewer, error) {
 	esc.ConnectKeyPressed(func(val, _ uint, state gdk.ModifierType) bool {
 		switch val {
 		case gdk.KEY_Escape:
+			print("Hello!")
+			close()
 			v.Close()
 			return true
 		}
