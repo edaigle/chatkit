@@ -151,6 +151,17 @@ func NewViewer(ctx context.Context, uri string, opts Opts) (*Viewer, error) {
 
 	v.SetContent(box)
 
+	esc := gtk.NewEventControllerKey()
+	esc.setName("viewer-escape")
+	esc.ConnectKeyPressed(func(val, _ uint, state gdk.ModifierType) bool {
+		switch val {
+		case gdk.KEY_Escape:
+			v.Close()
+			return true
+		}
+		return false
+	})
+
 	gtkutil.BindActionMap(v, map[string]func(){
 		"embedviewer.close":         v.close,
 		"embedviewer.download":      v.download,
